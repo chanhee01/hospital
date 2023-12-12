@@ -11,7 +11,8 @@ import addDoctorRouter from '../routes/addDoctor';
 import addNurseRouter from '../routes/addNurse';
 import addExaminationRouter from '../routes/addExamination';
 import updateExaminationRouter from '../routes/updateExamination';
-//import treatmentRouter from '../routes/treatment';
+import addTreatmentRouter from '../routes/addTreatment';
+import updateTreatmentRouter from '../routes/updateTreatment';
 //import patientRouter from '../routes/patient';
 
 
@@ -43,6 +44,8 @@ app.use('/addDoctor', addDoctorRouter);
 app.use('/addNurse', addNurseRouter);
 app.use('/addExamination', addExaminationRouter);
 app.use('/updateExamination', updateExaminationRouter);
+app.use('/addTreatment', addTreatmentRouter);
+app.use('/updateTreatment', updateTreatmentRouter);
 //app.use('/treatment', treatmentRouter);
 //app.use('/patient', patientRouter);
 

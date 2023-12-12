@@ -33,6 +33,11 @@ export const selectSql = {
         const [result] = await promisePool.query(sql);
         return result;
     },
+    getTreatment: async () => {
+        const sql = `select * from treatment`;
+        const [result] = await promisePool.query(sql);
+        return result;
+    },
     getMaxDoctorId: async () => {
         const sql = 'select max(Doctor_ID) as maxDoctorId from doctor';
         const [result] = await promisePool.query(sql);
@@ -57,6 +62,12 @@ export const selectSql = {
         console.log('maxExaminationNumber:', result);
         return result[0].maxExaminationNumber;
     },
+    getMaxTreatmentNumber: async () => {
+        const sql = 'select max(Treatment_number) as maxTreatmentNumber from treatment';
+        const [result] = await promisePool.query(sql);
+        console.log('maxTreatmentNumber:', result);
+        return result[0].maxTreatmentNumber;
+    },
 }
 
 export const deleteSql = {
@@ -72,6 +83,11 @@ export const deleteSql = {
     },
     deleteExamination: async (data) => {
         const sql = `delete from examination where Examination_number = ${data.Examination_number}`
+        console.log(sql);
+        await promisePool.query(sql);
+    },
+    deleteTreatment: async (data) => {
+        const sql = `delete from treatment where Treatment_number = ${data.Treatment_number}`
         console.log(sql);
         await promisePool.query(sql);
     },
@@ -120,6 +136,17 @@ export const insertSql = {
         console.log(data);
         await promisePool.query(sql);
     },
+    setTreatment: async (data) => {
+        const maxTreatmentNumber = await selectSql.getMaxTreatmentNumber();
+        const nextTreatmentNumber = maxTreatmentNumber + 1;
+
+        const sql = `insert into treatment values (
+            "${nextTreatmentNumber}", "${data.Treatment_Date_Time}", "${data.Treatment_Details}",
+            "${data.Nurse_ID}", "${data.Patient_ID}"
+        )`
+        console.log(data);
+        await promisePool.query(sql);
+    },
 };
 
 export const updateSql = {
@@ -155,6 +182,19 @@ export const updateSql = {
                 Doctor_ID = "${data.Doctor_ID}", 
                 Patient_ID = "${data.Patient_ID}"
             WHERE Examination_number = "${data.Examination_number}"`;
+        console.log(sql);
+        await promisePool.query(sql);
+    },
+    updateTreatment: async (data) => {
+        console.log(data);
+        const sql = `
+            UPDATE Treatment
+            SET 
+                Treatment_Date_Time = "${data.Treatment_Date_Time}", 
+                Treatment_Details = "${data.Treatment_Details}", 
+                Nurse_ID = "${data.Nurse_ID}", 
+                Patient_ID = "${data.Patient_ID}"
+            WHERE Treatment_number = "${data.Treatment_number}"`;
         console.log(sql);
         await promisePool.query(sql);
     },

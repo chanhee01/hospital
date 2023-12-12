@@ -31,10 +31,10 @@ router.post('/', async (req, res) => {
                 res.redirect('/admin');
                 break;
             case 'doctor':
-                res.redirect('/addExamination');
+                res.redirect('/updateExamination');
                 break;
             case 'nurse':
-                //res.redirect('/treatment');
+                res.redirect('/updateTreatment');
                 break;
             case 'patient':
                 //res.redirect('/patient');
