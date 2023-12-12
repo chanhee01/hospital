@@ -1,0 +1,30 @@
+<h1>{{main_title}}</h1>
+<table>
+    <tr>
+        <td>Examination Number</td>
+        <td>Examination Date and Time</td>
+        <td>Examination Details</td>
+        <td>Doctor ID</td>
+        <td>Patient ID</td>
+        <td>Action</td>
+    </tr>
+    {{#each examination_res}}
+        <tr>
+            <form method="post" action="/updateExamination">
+                <td>{{Examination_number}}</td>
+                <td style="display: none"><input type="text" name="examination_number" value="{{Examination_number}}"></td>
+                <td><input type="datetime-local" name="examination_date_time" value="{{Examination_Date_Time}}"></td>
+                <td><textarea name="details">{{Examination_Details}}</textarea></td>
+                <td><input type="text" name="doctor_ID" value="{{Doctor_ID}}"></td>
+                <td><input type="text" name="patient_ID" value="{{Patient_ID}}"></td>
+                <td>
+                    <input type="submit" value="Modify">
+                </td>
+            </form>
+            <form method="post" action="/updateExamination/deleteExamination">
+                <td style="display: none"><input type="text" name="examination_number" value="{{Examination_number}}"></td>
+                <td><input type="submit" value="Delete"></td>
+            </form>
+        </tr>
+    {{/each}}
+</table>

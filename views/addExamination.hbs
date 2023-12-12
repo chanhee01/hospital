@@ -1,0 +1,16 @@
+<h1>{{main_title}}</h1>
+<form method="post" action="/addExamination">
+    <label for="Examination_Date_Time">Examination Date and Time:</label>
+    <input type="datetime-local" id="Examination_Date_Time" name="Examination_Date_Time" required>
+    <br>
+    <label for="Examination_Details">Examination Details:</label>
+    <textarea id="Examination_Details" name="Examination_Details" required></textarea>
+    <br>
+    <label for="Doctor_ID">Doctor ID:</label>
+    <input type="text" id="Doctor_ID" name="Doctor_ID" required>
+    <br>
+    <label for="Patient_ID">Patient ID:</label>
+    <input type="text" id="Patient_ID" name="Patient_ID" required>
+    <br>
+    <button type="submit">Add Examination</button>
+</form>

@@ -9,7 +9,8 @@ import updateDoctorRouter from '../routes/updateDoctor';
 import updateNurseRouter from '../routes/updateNurse';
 import addDoctorRouter from '../routes/addDoctor';
 import addNurseRouter from '../routes/addNurse';
-//import examinationRouter from '../routes/examination';
+import addExaminationRouter from '../routes/addExamination';
+import updateExaminationRouter from '../routes/updateExamination';
 //import treatmentRouter from '../routes/treatment';
 //import patientRouter from '../routes/patient';
 
@@ -40,7 +41,8 @@ app.use('/updateDoctor', updateDoctorRouter);
 app.use('/updateNurse', updateNurseRouter);
 app.use('/addDoctor', addDoctorRouter);
 app.use('/addNurse', addNurseRouter);
-//app.use('/examination', examinationRouter);
+app.use('/addExamination', addExaminationRouter);
+app.use('/updateExamination', updateExaminationRouter);
 //app.use('/treatment', treatmentRouter);
 //app.use('/patient', patientRouter);
 

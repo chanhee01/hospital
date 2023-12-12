@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
                 res.redirect('/admin');
                 break;
             case 'doctor':
-                //res.redirect('/examination');
+                res.redirect('/addExamination');
                 break;
             case 'nurse':
                 //res.redirect('/treatment');
