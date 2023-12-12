@@ -25,19 +25,19 @@ router.post('/', async (req, res) => {
                     location.href='/';
                 </script>`);
     } else {
-        // Redirect based on the user's role
+    
         switch (req.session.user.role) {
             case 'admin':
                 res.redirect('/admin');
                 break;
             case 'doctor':
-                res.redirect('/examination');
+                //res.redirect('/examination');
                 break;
             case 'nurse':
-                res.redirect('/treatment');
+                //res.redirect('/treatment');
                 break;
             case 'patient':
-                res.redirect('/patient');
+                //res.redirect('/patient');
                 break;
             default:
                 res.redirect('/');

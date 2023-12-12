@@ -1,0 +1,30 @@
+<h1>{{main_title}}</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Phone Number</td>
+        <td>Department ID</td>
+        <td>Action</td>
+    </tr>
+    {{#each nurse_res}}
+        <tr>
+            <form method="post" action="/updateNurse">
+                <td>{{Nurse_ID}}</td>
+                <td style="display: none"><input type="text" name="nurse_id" value={{Nurse_ID}}></td>
+                <td><input type="text" name="name" value="{{Name}}"></td>
+                <td><input type="text" name="address" value="{{Address}}"></td>
+                <td><input type="text" name="phonenumber" value="{{Phone_Number}}"></td>
+                <td><input type="text" name="department_id" value="{{Department_ID}}"></td>
+                <td>
+                    <input type="submit" value="Modify">
+                </td>
+            </form>
+            <form method="post" action="/updateNurse/deleteNurse">
+                <td style="display: none"><input type="text" name="nurse_id" value={{Nurse_ID}}></td>
+                <td><input type="submit" value="Delete"></td>
+            </form>
+        </tr>
+    {{/each}}
+</table>
