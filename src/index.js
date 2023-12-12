@@ -5,9 +5,10 @@ import expressSession from "express-session";
 
 import loginRouter from '../routes/login';
 import adminRouter from '../routes/admin';
-import examinationRouter from '../routes/examination';
-import treatmentRouter from '../routes/treatment';
-import patientRouter from '../routes/patient';
+import updateDoctorRouter from '../routes/updateDoctor';
+//import examinationRouter from '../routes/examination';
+//import treatmentRouter from '../routes/treatment';
+//import patientRouter from '../routes/patient';
 
 
 const PORT = 3000;
@@ -32,9 +33,10 @@ app.use(logger('dev'));
 
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
-app.use('/examination', examinationRouter);
-app.use('/treatment', treatmentRouter);
-app.use('/patient', patientRouter);
+app.use('/updateDoctor', updateDoctorRouter);
+//app.use('/examination', examinationRouter);
+//app.use('/treatment', treatmentRouter);
+//app.use('/patient', patientRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`)
