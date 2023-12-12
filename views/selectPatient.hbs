@@ -1,0 +1,42 @@
+<h1>{{main_title}}</h1>
+
+<form method="post" action="/selectPatient">
+    <label for="searchType">Search Type:</label>
+    <select id="searchType" name="searchType">
+        <option value="name">Name</option>
+        <option value="gender">Gender</option>
+        <option value="bloodType">Blood Type</option>
+        <option value="heightWeight">Height & Weight</option>
+        <option value="phoneNumber">Phone Number</option>
+        <option value="address">Address</option>
+        <option value="ssn">SSN</option>
+        <option value="doctorId">Doctor ID</option>
+        <option value="nurseId">Nurse ID</option>
+    </select>
+
+    <label for="searchTerm">Search Term:</label>
+    <input type="text" id="searchTerm" name="searchTerm" required>
+
+    <div id="heightWeightRange" style="display: none;">
+        <label for="minHeight">Min Height:</label>
+        <input type="number" id="minHeight" name="minHeight" step="1">
+
+        <label for="maxHeight">Max Height:</label>
+        <input type="number" id="maxHeight" name="maxHeight" step="1">
+
+        <label for="minWeight">Min Weight:</label>
+        <input type="number" id="minWeight" name="minWeight" step="1">
+
+        <label for="maxWeight">Max Weight:</label>
+        <input type="number" id="maxWeight" name="maxWeight" step="1">
+    </div>
+
+    <button type="submit">Search</button>
+</form>
+
+<script>
+    document.getElementById('searchType').addEventListener('change', function () {
+        const heightWeightRange = document.getElementById('heightWeightRange');
+        heightWeightRange.style.display = this.value === 'heightWeight' ? 'block' : 'none';
+    });
+</script>

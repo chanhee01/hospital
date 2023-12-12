@@ -28,6 +28,22 @@ export const selectSql = {
         const [result] = await promisePool.query(sql);
         return result;
     },
+    getPatient: async (searchCriteria) => {
+        let sql = 'SELECT * FROM patient';
+        let values = [];
+
+        if (searchCriteria) {
+            const conditions = [];
+            for (const key in searchCriteria) {
+                conditions.push(`${key} = ?`);
+                values.push(searchCriteria[key]);
+            }
+            sql += ` WHERE ${conditions.join(' AND ')}`;
+        }
+    
+        const [result] = await promisePool.query(sql, values);
+        return result;
+    },
     getExamination: async () => {
         const sql = `select * from examination`;
         const [result] = await promisePool.query(sql);

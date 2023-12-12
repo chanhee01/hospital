@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <style>
+        .table-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .styled-table {
+            width: 150%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .styled-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1>{{main_title}}</h1>
+
+        {{#if patient_res.length}}
+            <table class="styled-table">
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Blood Type</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>SSN</th>
+                    <th>Doctor ID</th>
+                    <th>Nurse ID</th>
+                </tr>
+                {{#each patient_res}}
+                    <tr>
+                        <td>{{Patient_ID}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Gender}}</td>
+                        <td>{{Blood_Type}}</td>
+                        <td>{{Height}}</td>
+                        <td>{{Weight}}</td>
+                        <td>{{Phone_Number}}</td>   
+                        <td>{{Address}}</td>
+                        <td>{{SSN}}</td>
+                        <td>{{Doctor_ID}}</td>
+                        <td>{{Nurse_ID}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{else}}
+            <p>No results found.</p>
+        {{/if}}
+    </div>
+</body>
+</html>

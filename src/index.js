@@ -13,6 +13,7 @@ import addExaminationRouter from '../routes/addExamination';
 import updateExaminationRouter from '../routes/updateExamination';
 import addTreatmentRouter from '../routes/addTreatment';
 import updateTreatmentRouter from '../routes/updateTreatment';
+import selectPatientRouter from '../routes/selectPatient'
 //import patientRouter from '../routes/patient';
 
 
@@ -46,7 +47,7 @@ app.use('/addExamination', addExaminationRouter);
 app.use('/updateExamination', updateExaminationRouter);
 app.use('/addTreatment', addTreatmentRouter);
 app.use('/updateTreatment', updateTreatmentRouter);
-//app.use('/treatment', treatmentRouter);
+app.use('/selectPatient', selectPatientRouter)
 //app.use('/patient', patientRouter);
 
 app.listen(PORT, () => {
