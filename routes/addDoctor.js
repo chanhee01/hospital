@@ -4,9 +4,13 @@ import { insertSql, selectSql } from '../database/sql';
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-  res.render('addDoctor', {
-    main_title: "Add Doctor",
-  });
+  if (_req.session.user == undefined || _req.session.user.role !== 'admin') {
+      res.redirect('/');
+  } else {
+      res.render('addDoctor', {
+          main_title: "Add Doctor",
+      });
+  }
 });
 
 router.post('/', async (req, res) => {

@@ -4,10 +4,14 @@ import { insertSql, selectSql } from '../database/sql';
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-  res.render('addNurse', {
-    main_title: "Add Nurse",
-  });
-});
+  if (_req.session.user == undefined || _req.session.user.role !== 'admin') {
+      res.redirect('/');
+  } else {
+      res.render('addNurse', {
+          main_title: "Add Nurse",
+      });
+  }
+});  
 
 router.post('/', async (req, res) => {
   const { name, address, phone, department_id, login_id, login_password } = req.body;

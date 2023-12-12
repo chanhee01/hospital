@@ -3,13 +3,17 @@ import { selectSql, updateSql, deleteSql } from '../database/sql';
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
-    const nurse_res = await selectSql.getNurse();
-    console.log(nurse_res)
-    res.render('updateNurse', {
-        main_title: "UPDATE table",
-        nurse_res,
-    });
+router.get('/', async (req, res) => {
+    if (req.session.user == undefined || req.session.user.role !== 'admin') {
+        res.redirect('/');
+    } else {
+        const nurse_res = await selectSql.getNurse();
+        console.log(nurse_res)
+        res.render('updateNurse', {
+            main_title: "UPDATE table",
+            nurse_res,
+        });
+    }
 });
 
 router.post('/', async (req, res) => {
