@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{main_title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .inpatient-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inpatient-info div {
+            margin-bottom: 8px;
+        }
+
+        .inpatient-info strong {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{main_title}}</h1>
+
+        <ul>
+            {{#each inpatients}}
+                <li>
+                    <div class="inpatient-info">
+                        <div>
+                            <strong>Room Info:</strong> {{Room_Info}}
+                        </div>
+                        <div>
+                            <strong>Admission Date:</strong><br> {{Admission_Date}}
+                        </div>
+                        <div>
+                            <strong>Discharge Date and Time:</strong><br> {{Discharge_Date_Time}}
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+</html>

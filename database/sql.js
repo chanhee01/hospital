@@ -28,6 +28,21 @@ export const selectSql = {
         const [result] = await promisePool.query(sql);
         return result;
     },
+    getPatientId: async (userId) => {
+        const sql = `select * from patient where patient.User_ID = "${userId}"`;
+        const [result] = await promisePool.query(sql);
+        return result;
+    },
+    getReservation: async (patientId) => {
+        const sql = `select * from reservation where reservation.Patient_ID = ${patientId}`;
+        const [result] = await promisePool.query(sql);
+        return result;
+    },
+    getInpatient: async (patientId) => {
+        const sql = `select * from inpatient where inpatient.Patient_ID = ${patientId}`;
+        const [result] = await promisePool.query(sql);
+        return result;
+    },
     getPatient: async (searchCriteria) => {
         let sql = 'SELECT * FROM patient';
         let values = [];
@@ -84,6 +99,18 @@ export const selectSql = {
         console.log('maxTreatmentNumber:', result);
         return result[0].maxTreatmentNumber;
     },
+    getMaxReservationNumber: async () => {
+        const sql = 'select max(Reservation_Number) as maxReservationNumber from reservation';
+        const [result] = await promisePool.query(sql);
+        console.log('maxReservationNumber:', result);
+        return result[0].maxReservationNumber;
+    },
+    getMaxInpatientNumber: async () => {
+        const sql = 'select max(Inpatient_Number) as maxInpatientNumber from inpatient';
+        const [result] = await promisePool.query(sql);
+        console.log('maxInpatientNumber:', result);
+        return result[0].maxInpatientNumber;
+    },
 }
 
 export const deleteSql = {
@@ -104,6 +131,16 @@ export const deleteSql = {
     },
     deleteTreatment: async (data) => {
         const sql = `delete from treatment where Treatment_number = ${data.Treatment_number}`
+        console.log(sql);
+        await promisePool.query(sql);
+    },
+    deleteReservation: async (data) => {
+        const sql = `delete from reservation where Reservation_Number = ${data.Reservation_Number}`
+        console.log(sql);
+        await promisePool.query(sql);
+    },
+    deleteInpatient: async (data) => {
+        const sql = `delete from inpatient where Inpatient_Number = ${data.Inpatient_Number}`
         console.log(sql);
         await promisePool.query(sql);
     },
@@ -159,6 +196,28 @@ export const insertSql = {
         const sql = `insert into treatment values (
             "${nextTreatmentNumber}", "${data.Treatment_Date_Time}", "${data.Treatment_Details}",
             "${data.Nurse_ID}", "${data.Patient_ID}"
+        )`
+        console.log(data);
+        await promisePool.query(sql);
+    },
+    setReservation: async (data) => {
+        const maxReservationNumber = await selectSql.getMaxReservationNumber();
+        const nextReservationNumber = maxReservationNumber + 1;
+
+        const sql = `insert into reservation values (
+            "${nextReservationNumber}", "${data.Reservation_Date_Time}", "${data.Department_ID}",
+            "${data.Patient_ID}"
+        )`
+        console.log(data);
+        await promisePool.query(sql);
+    },
+    setInpatient: async (data) => {
+        const maxInpatientNumber = await selectSql.getMaxInpatientNumber();
+        const nextInpatientNumber = maxInpatientNumber + 1;
+
+        const sql = `insert into inpatient values (
+            "${nextInpatientNumber}", "${data.Patient_ID}", "${data.Room_Info}",
+            "${data.Admission_Date}", "${data.Discharge_Date_Time}"
         )`
         console.log(data);
         await promisePool.query(sql);

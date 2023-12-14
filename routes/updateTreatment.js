@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         const treatment_res = await selectSql.getTreatment();
         console.log(treatment_res)
         res.render('updateTreatment', {
-            main_title: "UPDATE table",
+            main_title: "치료기록 수정",
             treatment_res,
         });
     }

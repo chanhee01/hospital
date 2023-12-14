@@ -8,7 +8,7 @@ router.get('/', (_req, res) => {
       res.redirect('/');
   } else {
       res.render('addNurse', {
-          main_title: "Add Nurse",
+          main_title: "간호사 추가",
       });
   }
 });  

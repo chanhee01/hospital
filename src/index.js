@@ -14,7 +14,12 @@ import updateExaminationRouter from '../routes/updateExamination';
 import addTreatmentRouter from '../routes/addTreatment';
 import updateTreatmentRouter from '../routes/updateTreatment';
 import selectPatientRouter from '../routes/selectPatient'
-//import patientRouter from '../routes/patient';
+import addReservationRouter from '../routes/addReservation'
+import selectReservationRouter from '../routes/selectReservation'
+import deleteReservationRouter from '../routes/deleteReservation'
+import addInpatientRouter from '../routes/addInpatient'
+import selectInpatientRouter from '../routes/selectInpatient'
+import deleteInpatientRouter from '../routes/deleteInpatient'
 
 
 const PORT = 3000;
@@ -48,7 +53,13 @@ app.use('/updateExamination', updateExaminationRouter);
 app.use('/addTreatment', addTreatmentRouter);
 app.use('/updateTreatment', updateTreatmentRouter);
 app.use('/selectPatient', selectPatientRouter)
-//app.use('/patient', patientRouter);
+app.use('/addReservation', addReservationRouter)
+app.use('/selectReservation', selectReservationRouter)
+app.use('/deleteReservation', deleteReservationRouter)
+app.use('/addInpatient', addInpatientRouter)
+app.use('/selectInpatient', selectInpatientRouter)
+app.use('/deleteInpatient', deleteInpatientRouter)
+
 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`)

@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{main_title}}</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{main_title}}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>병실 정보</th>
+                <th>입원 일자</th>
+                <th>퇴원 일시</th>
+                <th>취소</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each inpatients}}
+                <tr>
+                    <td>{{this.Room_Info}}</td>
+                    <td>{{this.Admission_Date}}</td>
+                    <td>{{this.Discharge_Date_Time}}</td>
+                    <td>
+                        <form method="post" action="/deleteInpatient/delete">
+                            <input type="hidden" name="Inpatient_Number" value="{{this.Inpatient_Number}}">
+                            <button type="submit">Cancel</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

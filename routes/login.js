@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
                 res.redirect('/updateTreatment');
                 break;
             case 'patient':
-                //res.redirect('/patient');
+                res.redirect('/addReservation');
                 break;
             default:
                 res.redirect('/');

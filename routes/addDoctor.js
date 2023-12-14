@@ -8,7 +8,7 @@ router.get('/', (_req, res) => {
       res.redirect('/');
   } else {
       res.render('addDoctor', {
-          main_title: "Add Doctor",
+          main_title: "의사 추가",
       });
   }
 });
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
     Role: 'Doctor',
   };
   await insertSql.setUser(userData);
-
+  
   const maxUserIdResult = await selectSql.getMaxUserId();
   const maxUserId = maxUserIdResult;
 

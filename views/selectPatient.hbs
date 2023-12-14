@@ -1,42 +1,116 @@
-<h1>{{main_title}}</h1>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-<form method="post" action="/selectPatient">
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: left;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    select, input, button {
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      width: 100%;
+    }
+
+    select {
+      height: 34px;
+    }
+
+    #heightWeightRange {
+      display: none;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <title>{{main_title}}</title>
+</head>
+<body>
+  <h1>{{main_title}}</h1>
+
+  <form method="post" action="/selectPatient">
     <label for="searchType">Search Type:</label>
     <select id="searchType" name="searchType">
-        <option value="name">Name</option>
-        <option value="gender">Gender</option>
-        <option value="bloodType">Blood Type</option>
-        <option value="heightWeight">Height & Weight</option>
-        <option value="phoneNumber">Phone Number</option>
-        <option value="address">Address</option>
-        <option value="ssn">SSN</option>
-        <option value="doctorId">Doctor ID</option>
-        <option value="nurseId">Nurse ID</option>
+      <option value="name">Name</option>
+      <option value="gender">Gender</option>
+      <option value="bloodType">Blood Type</option>
+      <option value="heightWeight">Height & Weight</option>
+      <option value="phoneNumber">Phone Number</option>
+      <option value="address">Address</option>
+      <option value="ssn">SSN</option>
+      <option value="doctorId">Doctor ID</option>
+      <option value="nurseId">Nurse ID</option>
     </select>
 
     <label for="searchTerm">Search Term:</label>
     <input type="text" id="searchTerm" name="searchTerm" required>
 
-    <div id="heightWeightRange" style="display: none;">
-        <label for="minHeight">Min Height:</label>
-        <input type="number" id="minHeight" name="minHeight" step="1">
+    <div id="heightWeightRange">
+      <label for="minHeight">Min Height:</label>
+      <input type="number" id="minHeight" name="minHeight" step="1">
 
-        <label for="maxHeight">Max Height:</label>
-        <input type="number" id="maxHeight" name="maxHeight" step="1">
+      <label for="maxHeight">Max Height:</label>
+      <input type="number" id="maxHeight" name="maxHeight" step="1">
 
-        <label for="minWeight">Min Weight:</label>
-        <input type="number" id="minWeight" name="minWeight" step="1">
+      <label for="minWeight">Min Weight:</label>
+      <input type="number" id="minWeight" name="minWeight" step="1">
 
-        <label for="maxWeight">Max Weight:</label>
-        <input type="number" id="maxWeight" name="maxWeight" step="1">
+      <label for="maxWeight">Max Weight:</label>
+      <input type="number" id="maxWeight" name="maxWeight" step="1">
     </div>
 
     <button type="submit">Search</button>
-</form>
+  </form>
 
-<script>
+  <script>
     document.getElementById('searchType').addEventListener('change', function () {
-        const heightWeightRange = document.getElementById('heightWeightRange');
-        heightWeightRange.style.display = this.value === 'heightWeight' ? 'block' : 'none';
+      const heightWeightRange = document.getElementById('heightWeightRange');
+      heightWeightRange.style.display = this.value === 'heightWeight' ? 'block' : 'none';
     });
-</script>
+  </script>
+</body>
+</html>

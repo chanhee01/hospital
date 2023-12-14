@@ -8,7 +8,7 @@ router.get('/', (_req, res) => {
       res.redirect('/');
   } else {
       res.render('addExamination', {
-          main_title: "Add Examination",
+          main_title: "진료기록 추가",
       });
   }
 });
