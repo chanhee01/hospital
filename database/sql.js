@@ -53,7 +53,6 @@ export const selectSql = {
                 conditions.push(`${key} = ?`);
                 values.push(searchCriteria[key]);
             }
-            sql += ` WHERE ${conditions.join(' AND ')}`;
         }
     
         const [result] = await promisePool.query(sql, values);
@@ -273,4 +272,31 @@ export const updateSql = {
         console.log(sql);
         await promisePool.query(sql);
     },
+};
+
+export const beginTransaction = async () => {
+    try {
+        await promisePool.query('START TRANSACTION');
+    } catch (error) {
+        console.error('트랜잭션 시작 중 에러 발생', error);
+        throw error;
+    }
+};
+
+export const commit = async () => {
+    try {
+        await promisePool.query('COMMIT');
+    } catch (error) {
+        console.error('커밋 실패', error);
+        throw error;
+    }
+};
+
+export const rollback = async () => {
+    try {
+        await promisePool.query('ROLLBACK');
+    } catch (error) {
+        console.error('롤백 실패:', error);
+        throw error;
+    }
 };

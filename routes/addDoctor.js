@@ -1,5 +1,5 @@
 import express from 'express';
-import { insertSql, selectSql } from '../database/sql';
+import { insertSql, selectSql, beginTransaction, commit, rollback } from '../database/sql';
 
 const router = express.Router();
 
@@ -16,26 +16,34 @@ router.get('/', (_req, res) => {
 router.post('/', async (req, res) => {
   const { name, address, phone, department_id, login_id, login_password } = req.body;
 
-  const userData = {
-    ID: login_id,
-    Password: login_password,
-    Role: 'Doctor',
-  };
-  await insertSql.setUser(userData);
-  
-  const maxUserIdResult = await selectSql.getMaxUserId();
-  const maxUserId = maxUserIdResult;
+  try {
+    await beginTransaction();
 
-  const doctorData = {
-    Name: name,
-    Address: address,
-    Phone_number: phone,
-    Department_ID: department_id,
-    User_ID: maxUserId,
-  };
-  await insertSql.setDoctor(doctorData);
+    const userData = {
+      ID: login_id,
+      Password: login_password,
+      Role: 'Doctor',
+    };
+    await insertSql.setUser(userData);
 
-  res.redirect('/');
+    const maxUserIdResult = await selectSql.getMaxUserId();
+    const maxUserId = maxUserIdResult;
+
+    const doctorData = {
+      Name: name,
+      Address: address,
+      Phone_number: phone,
+      Department_ID: department_id,
+      User_ID: maxUserId,
+    };
+    await insertSql.setDoctor(doctorData);
+
+    await commit();
+
+    res.redirect('/');
+  } catch (error) {
+    await rollback();
+  }
 });
 
 module.exports = router;
