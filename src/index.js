@@ -20,6 +20,7 @@ import deleteReservationRouter from '../routes/deleteReservation'
 import addInpatientRouter from '../routes/addInpatient'
 import selectInpatientRouter from '../routes/selectInpatient'
 import deleteInpatientRouter from '../routes/deleteInpatient'
+import viewDoctorRouter from '../routes/viewDoctor'
 
 
 const PORT = 3000;
@@ -59,6 +60,7 @@ app.use('/deleteReservation', deleteReservationRouter)
 app.use('/addInpatient', addInpatientRouter)
 app.use('/selectInpatient', selectInpatientRouter)
 app.use('/deleteInpatient', deleteInpatientRouter)
+app.use('/viewDoctor', viewDoctorRouter)
 
 
 app.listen(PORT, () => {

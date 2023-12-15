@@ -53,6 +53,7 @@ export const selectSql = {
                 conditions.push(`${key} = ?`);
                 values.push(searchCriteria[key]);
             }
+            sql += ` WHERE ${conditions.join(' AND ')}`;
         }
     
         const [result] = await promisePool.query(sql, values);
@@ -109,6 +110,11 @@ export const selectSql = {
         const [result] = await promisePool.query(sql);
         console.log('maxInpatientNumber:', result);
         return result[0].maxInpatientNumber;
+    },
+    getDoctorView: async () => {
+        const sql = `SELECT * FROM DoctorNameAndDepartmentView`;
+        const [result] = await promisePool.query(sql);
+        return result;
     },
 }
 
