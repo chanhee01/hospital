@@ -21,7 +21,7 @@
 
 #### **서비스 소개 사진**
 ###### **관리자 - 의사 조회, 추가, 변경 및 삭제**
-<img width="224" alt="의사 조회" src="https://github.com/chanhee01/hospital/assets/102280807/6664d4bb-acf1-4559-b075-92eabcd44260">
+<img width="400" alt="의사 조회" src="https://github.com/chanhee01/hospital/assets/102280807/6664d4bb-acf1-4559-b075-92eabcd44260">
 <img width="224" alt="의사 추가" src="https://github.com/chanhee01/hospital/assets/102280807/1f8209df-df81-4408-b1e4-07411275caaa">
 <img width="400" alt="의사 정보 수정" src="https://github.com/chanhee01/hospital/assets/102280807/a27a3c01-5ad3-4936-8345-478b375133ca">
 <br>
@@ -43,7 +43,7 @@
 
 ###### **환자 조회**
 <img width="224" alt="환자 조건 부여" src="https://github.com/chanhee01/hospital/assets/102280807/dcedac04-8998-4e53-b98a-3c13cac4c35c">
-<img width="224" alt="결과 페이지" src="https://github.com/chanhee01/hospital/assets/102280807/f31ebd1b-93bc-4e74-968d-a715435e7de5">
+<img width="400" alt="결과 페이지" src="https://github.com/chanhee01/hospital/assets/102280807/f31ebd1b-93bc-4e74-968d-a715435e7de5">
 <br>
 <hr>
 
@@ -51,4 +51,4 @@
 ###### **환자 - 진료 예약**
 <img width="224" alt="진료 예약" src="https://github.com/chanhee01/hospital/assets/102280807/2bc8d5ac-aa9a-4ea2-ba72-6be8304a8044">
 <img width="224" alt="진료 조회" src="https://github.com/chanhee01/hospital/assets/102280807/99f40b6e-a9d0-4a9d-a39d-1f8e976ee7f9">
-<img width="400" alt="진료 취소" src="https://github.com/chanhee01/hospital/assets/102280807/616a1488-992c-47a1-bce6-884d7315ab69">  
+<img width="224" alt="진료 취소" src="https://github.com/chanhee01/hospital/assets/102280807/616a1488-992c-47a1-bce6-884d7315ab69">  
