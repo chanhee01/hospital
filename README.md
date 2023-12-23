@@ -21,8 +21,8 @@
 
 #### **서비스 소개 사진**
 ###### **관리자 - 의사 조회, 추가, 변경 및 삭제**
-<img width="400" alt="의사 조회" src="https://github.com/chanhee01/hospital/assets/102280807/6664d4bb-acf1-4559-b075-92eabcd44260">
 <img width="224" alt="의사 추가" src="https://github.com/chanhee01/hospital/assets/102280807/1f8209df-df81-4408-b1e4-07411275caaa">
+<img width="400" alt="의사 조회" src="https://github.com/chanhee01/hospital/assets/102280807/6664d4bb-acf1-4559-b075-92eabcd44260">
 <img width="400" alt="의사 정보 수정" src="https://github.com/chanhee01/hospital/assets/102280807/a27a3c01-5ad3-4936-8345-478b375133ca">
 <br>
 <hr>
